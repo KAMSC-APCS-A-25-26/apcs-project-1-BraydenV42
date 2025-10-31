@@ -4,7 +4,7 @@ import java.util.List;
 
 
 /* try {
-            Thread.sleep(5000);
+            Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -15,18 +15,15 @@ import java.util.List;
 
 public class TextAdventure {
     public static void main(String[] args) {
-        System.out.println("TICK TOCK");
-        System.out.println("We have the very absolving story of a girl...");
-        try { Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
-        System.out.println("Who was forced into a game of terror...");
-        try { Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
-        System.out.println("In which the knifes were loaded wi t t t h .  .     .      .                        .                             .\n\n");
-        try { Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+        System.out.println("TICK TOCK\n");
 
 
+
+
+        // Scene 1
 
         System.out.println("Scene 1: The Homebody");
-        try { Thread.sleep(1500);} catch (InterruptedException e) {e.printStackTrace();}
+        try { Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
         System.out.println("--------------\n" + "> A day like today starts like any other. \n> The clouds cover the vast endless blue sky " +
                 "the shoulders of the roads filling with fallen leaves from trees.\n> Your friends recent death plaqued your every thought. \n> He had gone missing without a trace and had been presumed dead many days ago.");
         System.out.println("> You had rotted at home ever since.");
@@ -69,12 +66,17 @@ public class TextAdventure {
         }
 
         System.out.println("\nLoading next scene......\n");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Scene 2: A Walk and A Rainy Day \n--------------\n> Before you go out you look out the window. The clouds have turned to a darker gray.\n> You stop and think about whether or not you should put on some rain clothes. ");
+        try { Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+
+
+
+
+
+        // Scene 2
+
+        System.out.println("Scene 2: A Walk and A Rainy Day \n--------------\n");
+        try { Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+        System.out.println("> Before you go out you look out the window. The clouds have turned to a darker gray.\n> You stop and think about whether or not you should put on some rain clothes. ");
         running = true;
         List<Integer> prevChoices = new ArrayList<>();
         int rainPrep = 0;
@@ -118,13 +120,7 @@ public class TextAdventure {
                     break;
             }
             prevChoices.add(choice);
-            if(choice != 4) {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+
         }
         System.out.println("> Once you leave the house and start down the sidewalk it begins to heavily rain. Better hope your prepared!");
         if(rainPrep == 0) {
@@ -141,13 +137,18 @@ public class TextAdventure {
         }
 
         System.out.println("\nLoading next scene......\n");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        try { Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+
+
+
+
+
+        // Scene 3
+
         int noChoiceButYouCanTryLOL = 0;
-        System.out.println("Scene 3: The Room and Its Only Light \n--------------\n> Your friends house feels barren without him in it. You clean up some of the trash from your last night gaming together.\n> As you throw away the trash you notice a door halfway open.");
+        System.out.print("Scene 3: The Room and Its Only Light \n--------------\n");
+        try { Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+                System.out.println("> Your friends house feels barren without him in it. You clean up some of the trash from your last night gaming together.\n> As you throw away the trash you notice a door halfway open. \n");
 
         do {
             System.out.print("Do you enter? (1 for yes and 0 for no): ");
@@ -156,8 +157,8 @@ public class TextAdventure {
                 System.out.println("Not an option... try again...");
             }
         } while ((noChoiceButYouCanTryLOL != 0) && (noChoiceButYouCanTryLOL != 1));
+        System.out.println();
         if(noChoiceButYouCanTryLOL == 0) {
-            System.out.println();
             System.out.println("[<WANDERING IS A TERRIBLE SIN>]");
             try { Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
             for(int i = 1; i < 10; i++) {
@@ -167,8 +168,8 @@ public class TextAdventure {
             System.out.println();
         }
 
-        System.out.println("You enter the room. Inside there is nothing except for a singular computer on a desk. The only light inside the room came from its screen. \n" +
-        "On the screen was a game at its end. The game over screen. Its defining feature being a spotlight shining onto a checkered pattern floor. ");
+        System.out.println("> You enter the room. Inside there is nothing except for a singular computer on a desk. The only light inside the room came from its screen. \n" +
+        "> On the screen was a game at its end. The game over screen. Its defining feature being a spotlight shining onto a checkered pattern floor. \n");
 
         do {
             System.out.print("Do you play the game? (1 for yes and 0 for no): ");
@@ -177,14 +178,13 @@ public class TextAdventure {
                 System.out.println("Not an option... try again...");
             }
         } while ((noChoiceButYouCanTryLOL != 0) && (noChoiceButYouCanTryLOL != 1));
+        System.out.println();
         if(noChoiceButYouCanTryLOL == 0) {
-            System.out.println();
             System.out.println("[<YOUR LIFE IS A DISEASE. THIS IS THE SOLUTION.>]");
             try { Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
-            System.out.println();
         }
 
-        System.out.println("");
+        System.out.println("> You walk up to the computer and press play. Your body begins to feel weird and you pass out on the floor.");
     }
 
 }
