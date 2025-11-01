@@ -20,7 +20,8 @@ public class TextAdventure {
         while (gameRunning) {
             Scanner sc = new Scanner(System.in);
             System.out.println("CROWS ARE KIND OF EVIL\n");
-
+            boolean running = true;
+            int choice;
 
             // Scene 1
 
@@ -37,8 +38,7 @@ public class TextAdventure {
             System.out.print("Done reading? (input anything)");
             sc.next();
 
-            boolean running = true;
-            int choice;
+
             while (running) {
 
                 System.out.println("\nWhat should you do other than sit around all day?");
@@ -168,18 +168,8 @@ public class TextAdventure {
             System.out.println();
             if (noChoiceButYouCanTryLOL == 0) {
                 System.out.println("[<WANDERING IS A TERRIBLE SIN>]");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 for (int i = 1; i < 10; i++) {
                     System.out.println("[<WANDERING IS A TERRIBLE SIN>]");
-                    try {
-                        Thread.sleep((1900 / i));
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
                 System.out.println();
             }
@@ -197,11 +187,6 @@ public class TextAdventure {
             System.out.println();
             if (noChoiceButYouCanTryLOL == 0) {
                 System.out.println("[<MORESINISTERMINDS'LLSWONDERIFTHEYEVENHADACHOICEATALL>]");
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
 
             System.out.println("> You walk up to the computer and press play. Your body begins to feel weird and you pass out on the floor.");
@@ -336,9 +321,9 @@ public class TextAdventure {
 
 
 
-
             // Scene 6 (BIG DECISION HERE)
 
+            String ending = "";
             System.out.print("Scene 6: Feel A Decisions Breath Down Your Neck. Its Teeth Ripping Open Your Face. \n--------------\n");
             System.out.println("> The crows began to swarm covering your vision of the path ahead. Fear and adrenaline consume you and you sprint forward.\n> The deafening caws of the crows pierce your ears and drill into your mind.\n> After running for a while you break through into a small clearing. The loud rustling and wingbeats behind you fade away and you experience a moment of peace.\n> You wander and collect yourself. You quickly find a see through, glass crow with a picture of your friend inside.");
             do {
@@ -350,11 +335,11 @@ public class TextAdventure {
             } while ((choice != 0) && (choice != 1));
             if(choice == 1){
                 System.out.println("> You smash it against the floor angrily. Outraged at the thought your friend could be here somewhere. You then look forward to the next task.");
-                String ending = "bad";
+                ending = "bad";
             }
-            if(choice == 0){
+            else{
                 System.out.println("> You pick it up gently and look forward to your next task.");
-                String ending = "good";
+                ending = "good";
             }
 
             System.out.print("\nDone reading? (input anything)");
@@ -362,12 +347,106 @@ public class TextAdventure {
             System.out.println();
 
 
+            // Scene 7 (This is decently difficult)
 
+            System.out.print("Scene 7: Nightmare Down Elm Field \n--------------\n");
+            System.out.println("> You start down a path leading out of the clearing and to the edge of the forest.\n> Ahead of you was a large field with a lone house at the end of it.\n> With the promise of a possible exit you decide to sprint across the field and try to reach the house.");
+            System.out.print("");
+            int steps = 300;
+            int energyRun = 10;
+            int stepsTooTake;
+            int creatureAwareness = 0;
+            int crying = 5;
+            int previousChoices = 100;
+            running = true;
+            System.out.println("\nRunning through the field will be difficult.\nRules:\n1. If creature awareness reaches 100% you will die.\n2. If energy reaches 0 you will die\n3. When moving be careful with your steps. Above 25 will increase creature awareness and above 50 will give out your location.\nGood Luck");
+            while(running) {
+                if(creatureAwareness < 0){
+                    creatureAwareness = 0;
+                }
+                if(energyRun > 10){
+                    energyRun = 10;
+                }
+                System.out.println("\nStatus Report: \nYou have " + energyRun + " energy.");
+                System.out.println("The creature is " + creatureAwareness + " percent aware.");
+                System.out.println("There are " + steps + " steps left");
+                do {
+                    System.out.print("\nShould you run for it, stop to take a break, or fall over and cry? (2 to fall over and cry, 1 to take a break, and 0 to run): ");
+                    choice = sc.nextInt();
+                    if ((choice != 0) && (choice != 1) && choice != 2) {
+                        System.out.println("Not an option... try again...");
+                    }
+                } while ((choice != 0) && (choice != 1) && choice != 2);
+                if(choice == 0) {
+                    System.out.print("How many steps should you take? ");
+                    stepsTooTake = sc.nextInt();
+                    creatureAwareness += 20;
+                    System.out.println("Your running attracts unwanted attention. +20% creature awareness.");
+                    if (stepsTooTake > 25 && stepsTooTake <= 50) {
+                        System.out.println("You attract a crow to your position. +25% additional creature awareness.");
+                        creatureAwareness += 25;
+                    }
+                    else if (stepsTooTake > 50) {
+                        System.out.println("The creature finds you and tears you apart. +100% additional creature awareness.");
+                        creatureAwareness += 100;
+                    }
+                    steps -= stepsTooTake;
+                    energyRun -= 7;
+                    System.out.println("Lost 7 energy");
+                }
+                else if (choice == 1) {
+                    System.out.println("You stop and take a rest for a second");
+                    energyRun += 5;
+                    System.out.println("Gained 5 energy");
 
+                    if(creatureAwareness >= 75) {
+                        creatureAwareness += 5;
+                        System.out.println("Too many crows. A promised meal adds more suspense. +5% creature awareness.");
+                    }
+                    else if (previousChoices != choice){
+                        creatureAwareness -= 15;
+                        System.out.println("A crow loses interest and leaves. -15% creature awareness.");
+                    }
+                    if(previousChoices == choice) {
+                        creatureAwareness += 30;
+                        System.out.println("Too much waiting. Sitting like a duck never got you anywhere. +30% creature awareness.");
+                    }
+                }
+                else {
 
-            // Scene 7
-
-            System.out.print("Scene 7: Nightmare On Elm Forest \n--------------\n");
+                    System.out.println("You fall over and cry.");
+                    if(crying > 0){
+                        creatureAwareness -= crying * 10;
+                        System.out.println("Some crows feel bad and leave. Creature awareness went down by " + crying * 10 + "%.");
+                    }
+                    else {
+                        System.out.println("But nothing happens. ");
+                    }
+                    crying--;
+                }
+                if(energyRun < 1) {
+                    System.out.println("\nYou fall over due to lack of energy and the crows swarming above you tear you to shreds.\nYou then wake up back in the clearing");
+                    steps = 300;
+                    energyRun = 10;
+                    creatureAwareness = 0;
+                    crying = 5;
+                    continue;
+                }
+                if(creatureAwareness >= 100) {
+                    System.out.println("\nThe creature found you. It rips through the tall grass and tears you apart.\nYou then wake up back in the clearing.");
+                    steps = 300;
+                    energyRun = 10;
+                    creatureAwareness = 0;
+                    crying = 5;
+                    continue;
+                }
+                if(steps <= 0) {
+                    System.out.println("You burst into the house.");
+                    running = false;
+                    break;
+                }
+                previousChoices = choice;
+            }
 
             // CUT IT OFF
             gameRunning = false;
