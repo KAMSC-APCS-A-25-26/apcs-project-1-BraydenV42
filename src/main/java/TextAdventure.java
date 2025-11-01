@@ -19,7 +19,7 @@ public class TextAdventure {
         String waitForNext;
         while (gameRunning) {
             Scanner sc = new Scanner(System.in);
-            System.out.println("TICK TOCK\n");
+            System.out.println("CROWS ARE KIND OF EVIL\n");
 
 
             // Scene 1
@@ -215,7 +215,7 @@ public class TextAdventure {
             sc.next();
             System.out.println();
 
-            // Scene 4
+            // Scene 4 (POSSIBLE DEVELOPMENT) Quote on quote "big decision part". Don't be garbage and you're fine.
 
             System.out.print("Scene 4: The Beauty of Pure Unadulterated Dread \n--------------\n");
             System.out.println("> You wake up on the floor of the room. The desk and computer were both gone and the room was now completely empty.\n> You get up and run to the door but when you tug on the handle its locked. There were no windows or other ways out. You were trapped.\n> After a bit of waiting you decide that you may be able to break the door down.");
@@ -227,11 +227,13 @@ public class TextAdventure {
             while (running) {
                 System.out.println("You have: " + energy + " energy.");
                 System.out.println("The door can take: " + doorHealth / 4 + " more smashes.");
-                System.out.print("Smash through the door? (1 for yes and 0 for no): ");
-                choice = sc.nextInt();
-                if ((choice != 0) && (choice != 1)) {
-                    System.out.println("Not an option... try again...");
-                }
+                do {
+                    System.out.print("Smash through the door? (1 for yes and 0 for no): ");
+                    choice = sc.nextInt();
+                    if ((choice != 0) && (choice != 1)) {
+                        System.out.println("Not an option... try again...");
+                    }
+                } while ((choice != 0) && (choice != 1));
 
                 if (choice == 0) {
                     System.out.println("You decided to wait a bit and recover your energy. \n\nEnergy increased by 5.\n");
@@ -244,13 +246,15 @@ public class TextAdventure {
                 }
                 if (doorHealth == 0) {
                     running = false;
-                    System.out.println("> The door broke open and you fell on the floor of a new place. The world was a distorted version of your own\n> You look outside and the trees are dead and the sky is a dark red. You hear the caw of a crow above you.\n> You look up and the crow was circling above you. In a flash you suddenly feel your legs get ripped off your body.\n> As you bleed out you see a terrible giant bird-like creature feasting on your bottom half. You blank out and that was the end. You died.");
+                    System.out.println("> The door broke open and you fell on the floor of a new place. \n> You look outside your room and a forest of dead trees surrounded you. You hear the caw of a crow above you.\n> You look up at the blood-red sky and a crow was circling above you. In a flash you suddenly feel your legs get ripped off your body.\n> As you bleed out you see a terrible giant bird-like creature feasting on your bottom half. You blank out and that was the end. You died.");
                 }
                 if (energy <= 0) {
                     running = false;
                     break;
                 }
             }
+
+            // Alternate Ending: "You suck badly don't ya" ending
             int gameContinue;
             if (energy <= 0) {
                 System.out.println("> You feel a terrible fatigue and fall to the ground. Without the energy to move you die.\n> You got the worst possible ending. Death by skill issue.\n> Seriously? That was so incredibly easy. You suck!");
@@ -282,10 +286,88 @@ public class TextAdventure {
 
             // Scene 5
 
-            System.out.print("Scene 5: A Second Try? What Even Is Death? \n--------------\n");
-            System.out.println("> You wake up back in the room. You get up and check your legs to make sure they are still there.\n> Extremely confused as to why you were still alive. You were sure that you had died. Heck you felt yourself be torn apart.\n> Though confused you walk through the door that was still open and look up again\n The crow was circling above you once again. You yell at it to buzz off and this time your body stayed intact");
+            System.out.print("Scene 5: This Is Why Crows Are Kinda Evil \n--------------\n");
+            System.out.println("> You wake up back in the room. You get up and check your legs to make sure they are still there.\n> You were somehow still alive. You were sure that you had died. Heck you felt yourself be torn apart.\n> Though confused you walk through the door that was still open and look up again.\n> The crow was circling above you once again. You yell at it to buzz off and this time your body stayed intact.\n" +
+                    "> You wondered if this is where your friend had gone.\n> In an attempt to find him you looked ahead at the sprawling dead forest surrounding of you. It had branching paths and twists.\n> You hastily enter the forest out of fear of staying out in the open.");
             System.out.print("Done reading? (input anything)");
             sc.next();
+            running = true;
+            while(running) {
+                System.out.println("\n> There were 2 paths. A crow sat in the path to the left and the one on the right was clear.");
+                do {
+                    System.out.print("To the left or to the right? (1 for left and 0 for right): ");
+                    choice = sc.nextInt();
+                    if ((choice != 0) && (choice != 1)) {
+                        System.out.println("Not an option... try again...");
+                    }
+                } while ((choice != 0) && (choice != 1));
+                if(choice == 1) {
+                    System.out.println("> You were swiftly torn apart and woke up back in the house.");
+                    continue;
+                }
+                else{
+                    System.out.println("> Nothing happened and you continued walking.");
+                }
+                System.out.println("\n> There were 3 paths. A crow sat in the path to the right and middle and the one on the left was clear.");
+                do {
+                    System.out.print("To the left, the middle, or the right? (2 for middle and 1 for left and 0 for right): ");
+                    choice = sc.nextInt();
+                    if ((choice != 0) && (choice != 1) &&  choice != 2) {
+                        System.out.println("Not an option... try again...");
+                    }
+                } while ((choice != 0) && (choice != 1) && (choice != 2));
+                if(choice == 0 || choice == 2) {
+                    System.out.println("> You were swiftly torn apart and woke up back in the house.");
+                    continue;
+                }
+                else{
+                    System.out.println("> Nothing happened and you continued walking.");
+                }
+                System.out.println("\n> There were 3 paths. A crow sat on every single path.");
+                System.out.print("To the left, the middle, or the right? (2 for middle and 1 for left and 0 for right): ");
+                choice = sc.nextInt();
+                System.out.println("> You walk down the path you chose and hear rustling. You promptly start sprinting for your life to survive.");
+                running = false;
+            }
+
+            System.out.print("\nDone reading? (input anything)");
+            sc.next();
+            System.out.println();
+
+
+
+
+            // Scene 6 (BIG DECISION HERE)
+
+            System.out.print("Scene 6: Feel A Decisions Breath Down Your Neck. Its Teeth Ripping Open Your Face. \n--------------\n");
+            System.out.println("> The crows began to swarm covering your vision of the path ahead. Fear and adrenaline consume you and you sprint forward.\n> The deafening caws of the crows pierce your ears and drill into your mind.\n> After running for a while you break through into a small clearing. The loud rustling and wingbeats behind you fade away and you experience a moment of peace.\n> You wander and collect yourself. You quickly find a see through, glass crow with a picture of your friend inside.");
+            do {
+                System.out.print("> Out of anger you could smash the crow against the ground... or you could keep it for his memories sake.\nWhat do you do? (1 to smash it and 0 keep it): ");
+                choice = sc.nextInt();
+                if ((choice != 0) && (choice != 1)) {
+                    System.out.println("Not an option... try again...");
+                }
+            } while ((choice != 0) && (choice != 1));
+            if(choice == 1){
+                System.out.println("> You smash it against the floor angrily. Outraged at the thought your friend could be here somewhere. You then look forward to the next task.");
+                String ending = "bad";
+            }
+            if(choice == 0){
+                System.out.println("> You pick it up gently and look forward to your next task.");
+                String ending = "good";
+            }
+
+            System.out.print("\nDone reading? (input anything)");
+            sc.next();
+            System.out.println();
+
+
+
+
+
+            // Scene 7
+
+            System.out.print("Scene 7: Nightmare On Elm Forest \n--------------\n");
 
             // CUT IT OFF
             gameRunning = false;
