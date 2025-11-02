@@ -186,16 +186,11 @@ public class TextAdventure {
             } while ((noChoiceButYouCanTryLOL != 0) && (noChoiceButYouCanTryLOL != 1));
             System.out.println();
             if (noChoiceButYouCanTryLOL == 0) {
-                System.out.println("[<MORESINISTERMINDS'LLSWONDERIFTHEYEVENHADACHOICEATALL>]");
+                System.out.println("[<MORESINISTERMINDS'LLSWONDERIFTHEYEVENHADACHOICEATALL>]\n");
             }
 
             System.out.println("> You walk up to the computer and press play. Your body begins to feel weird and you pass out on the floor.");
 
-            try {
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             System.out.print("\nDone reading? (input anything)");
             sc.next();
             System.out.println();
@@ -352,6 +347,7 @@ public class TextAdventure {
             System.out.print("Scene 7: Nightmare Down Elm Field \n--------------\n");
             System.out.println("> You start down a path leading out of the clearing and to the edge of the forest.\n> Ahead of you was a large field with a lone house at the end of it.\n> With the promise of a possible exit you decide to sprint across the field and try to reach the house.");
             System.out.print("");
+            //Don't forget to reset this to 300 \/
             int steps = 300;
             int energyRun = 10;
             int stepsTooTake;
@@ -441,15 +437,58 @@ public class TextAdventure {
                     continue;
                 }
                 if(steps <= 0) {
-                    System.out.println("You burst into the house.");
+                    System.out.print("> You burst into the house and fall to the ground. The crows start circling the house in a tornado and the loud flapping of the wings grows ever closer.\n> You slam the door behind you and check your surroundings. You were in the same little room as earlier.\n> The investigation was cut short when a crow breaks through the walls of the house. They were breaking in and destroying the house.\n> The only difference in the room was the presence of the computer from earlier and a wooden bat.\n");
                     running = false;
                     break;
                 }
                 previousChoices = choice;
             }
+            do {
+                System.out.print("Smash the computer? (1 for yes and 0 for no): ");
+                choice = sc.nextInt();
+                if (choice != 1) {
+                    System.out.println("You hesitate. More crows break through the walls.");
+                }
+            } while (choice != 1);
+            System.out.println("> You smash the computer to bits and pieces. You feel everything go dark and your conscience slips.");
 
-            // CUT IT OFF
-            gameRunning = false;
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.print("\nDone reading? (input anything)");
+            sc.next();
+            System.out.println();
+
+
+
+
+            // Scene 8
+
+            if(ending.equals("bad")) {
+                System.out.print("Scene 8: Burdens Are Meant To Be Shouldered \n--------------\n");
+                System.out.println("> You wake up back in the real world. You figured you had passed out due to the lack of sleep.\n> You turn back out of the room and continue to clean up your dead friends house.");
+                System.out.println("--------------\nBAD ENDING\n-------------");
+
+
+            }
+            if(ending.equals("good")) {
+                System.out.print("Scene 8: Let There Be Light \n--------------\n");
+                System.out.println("> You wake up back in the real world. You figured you had passed out due to the lack of sleep.\n> However you wake up in your bed. A few seconds later you get a call from your friend.\n> You could not recall a single thing. Not that your friend was presumed dead\n> Not the alternate dimension.\n> Not the multiple and painful deaths you experienced.\n> Nothing.\n> The only change happened to be an empty glass crow sitting on the stand next to your bed.");
+                System.out.println("--------------\nGOOD ENDING\n-------------");
+            }
+
+            System.out.print("\n\nPlay again? (1 for yes and 0 for no): ");
+            gameContinue = sc.nextInt();
+            if (gameContinue == 1) {
+                System.out.println("\n\n");
+                continue;
+            }
+            if (gameContinue == 0) {
+                System.out.println("Thank you for playing. :)");
+                break;
+            }
         }
     }
 
