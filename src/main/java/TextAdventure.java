@@ -43,30 +43,33 @@ public class TextAdventure {
 
                 System.out.println("\nWhat should you do other than sit around all day?");
                 System.out.println(" 1 - Turn on some TV (Any youtuber of your choosing of course)\n 2 - Work on some Homework\n 3 - Visit your friends house to help soothe your mind. \n 4 - Nah. Sit around some more.\n 5 - Grab a bite to eat.");
+                do {
+                    System.out.print("Whats your choice? ");
+                    choice = sc.nextInt();
 
-                System.out.print("Whats your choice? ");
-                choice = sc.nextInt();
+                    switch (choice) {
+                        case 1:
+                            System.out.println("You start watching some TV. But inevitably realize that your multiple days of laziness have left you with nothing to watch. What now?");
+                            break;
+                        case 2:
+                            System.out.println("As you start to work on homework you start to feel extreme dread. You decide to save it for a later date and look for something new to do. What now?");
+                            break;
+                        case 3:
+                            System.out.println("You get up and prepare to leave your house. This was something you needed to recover your own sanity even if it was at the cost of your bed-rotting.");
 
-                switch (choice) {
-                    case 1:
-                        System.out.println("You start watching some TV. But inevitably realize that your multiple days of laziness have left you with nothing to watch. What now?");
-                        break;
-                    case 2:
-                        System.out.println("As you start to work on homework you start to feel extreme dread. You decide to save it for a later date and look for something new to do. What now?");
-                        break;
-                    case 3:
-                        System.out.println("You get up and prepare to leave your house. This was something you needed to recover your own sanity even if it was at the cost of your bed-rotting.");
-
-                        running = false;
-                        break;
-                    case 4:
-                        System.out.println("You sat around. What now?");
-                        break;
-                    case 5:
-                        System.out.println("You made a salami sandwich and orange juice. You sat down to eat and continued lazing after. What now?");
-
-                        break;
+                            running = false;
+                            break;
+                        case 4:
+                            System.out.println("You sat around. What now?");
+                            break;
+                        case 5:
+                            System.out.println("You made a salami sandwich and orange juice. You sat down to eat and continued lazing after. What now?");
+                            break;
                 }
+                    if ((choice != 5) && (choice != 1) && (choice != 2) && (choice != 3) && (choice != 4)) {
+                        System.out.println("Not an option... try again...");
+                    }
+                } while ((choice != 5) && (choice != 1) && (choice != 2) && (choice != 3) && (choice != 4));
             }
 
             try {
@@ -92,7 +95,7 @@ public class TextAdventure {
             while (running) {
                 System.out.println("\nWhat should you put on before you go out?");
                 System.out.println(" 1 - Put on rain boots\n 2 - Grab an umbrella\n 3 - Put on a rain coat\n 4 - Leave the house");
-
+                do {
                 System.out.print("Whats your choice? ");
                 choice = sc.nextInt();
                 switch (choice) {
@@ -125,7 +128,12 @@ public class TextAdventure {
                         running = false;
                         break;
                 }
+                    if ((choice != 1) && (choice != 2) && (choice != 3) && (choice != 4)) {
+                        System.out.println("Not an option... try again...");
+                    }
+                } while ((choice != 1) && (choice != 2) && (choice != 3) && (choice != 4));
                 prevChoices.add(choice);
+
 
             }
             System.out.println("> Once you leave the house and start down the sidewalk it begins to heavily rain. Better hope your prepared!");
