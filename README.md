@@ -1,4 +1,4 @@
-This story is based on a combination of the Sonic Aus Moribund and Epilepsia
+This story is based on a combination of the Sonic Aus Moribund and Epilepsia.
 The story starts with you in your house. Your friend had recently gone missing and you eventually end up heading to his house to mend your mental health.
 After a long and rainy walk you enter his house.
 You explore for a bit and end up stumbling across an empty room and a computer with a game on it.
